@@ -3,7 +3,7 @@
 #### Tecnologias requeridas
 
 - Django4
-- Git(Hub)
+- GitHub
 - PostgreSQL
 
 ### Primera tarea - Consulta API
@@ -35,16 +35,78 @@ Opcionales:
 - Utilizar Bootstrap 5
 
 
-## Correr el proyecto
+## Proyecto
+
+> **Importante** en `./chr_website/chr_test/settings.py` se exponen datos
+> confidenciales que no deberían estar allí, como esta aplicación es realizada
+> con fines didácticos se omite el uso de **variables de entorno** o archivo
+> de configuración sin seguimiento. Esto aplica además para la `SECRET_KEY` de
+> Django. Además de mantener el estado `DEBUG = True`. Ambos deben se parte de
+> un archivo de configuración diferente, como por ej. `production.py`.
 
 Dependencias
 
-- PostgreSQL
+- PostgreSQL >= v15.1(instalar, iniciar, crear usuario y base de datos)
 - Python >= 3.10.9
-- PgAdmin4 (opc.)
+- PgAdmin4 (opc. y en entorno virtual)
 
-Instalar requerimientos
+<!-- ![](./imgs/pgadmin.png) -->
+
+Instalar requerimientos (usar entorno virtual)
 
 ```py
 pip install -r requirements.txt
 ```
+
+### Detalle
+
+Crear proyecto `django-admin startproject chr_test`, cambiar al directorio del
+proyecto y probar la instalación `python manage.py runserver`.
+
+Crear migraciones y migrar cuando se realizen cambios que modifican la base de datos:
+
+- `python manage.py makemigrations`
+- `python manage.py migrate`
+
+Creación de super usuario:
+
+- `python manage.py createsuperuser chradmin`.
+
+Creación de dos django apps:
+
+- `python manage.py startapp apiBike`
+- `python manage.py startapp servEvalAmbient`
+
+Agregar apps en [./chr_website/chr_test/settings.py](./chr_website/chr_test/settings.py)
+
+Creación de modelos de las apps:
+
+- [../apiBike/models.py](./chr_website/apiBike/models.py)
+- [../servEvalAmbient/models.py](./chr_website/servEvalAmbient/models.py)
+
+Creación de las vistas:
+
+- [../apiBike/views.py](./chr_website/apiBike/views.py)
+- [../servEvalAmbient/views.py](./chr_website/servEvalAmbient/views.py)
+
+Crear urls para las vistas:
+
+- [../apiBike/urls.py](./chr_website/apiBike/urls.py.py)
+- [../servEvalAmbient/urls.py](./chr_website/servEvalAmbient/urls.py)
+
+Agregar vistas al proyecto en [./chr_website/chr_test/urls.py](./chr_website/chr_test/urls.py)
+
+En este punto (`commit`) las vistas generadas son solo de prueba. Y los modelos
+están vacios y no existen templates.
+
+Correr el proyecto `python manage.py runserver`
+
+Urls creadas:
+
+- `http://127.0.0.1:8000/apiBike/`
+- `http://127.0.0.1:8000/servAmbiente/`
+- `http://127.0.0.1:8000/admin/` (por defecto)
+
+> Nota: no se crea un "home" o "landing" por lo tanto visitar `http://127.0.0.1/`
+> devuelve error `404` como respuesta.
+
