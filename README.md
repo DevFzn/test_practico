@@ -96,8 +96,8 @@ Crear urls para las vistas:
 
 Agregar vistas al proyecto en [./chr_website/chr_test/urls.py](./chr_website/chr_test/urls.py)
 
-En este punto (`commit`) las vistas generadas son solo de prueba. Y los modelos
-están vacios y no existen templates.
+En este punto (`commit 25283b0`) las vistas generadas son solo de prueba. Los
+modelos están vacios y no existen templates.
 
 Correr el proyecto `python manage.py runserver`
 
