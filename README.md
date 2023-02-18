@@ -107,3 +107,11 @@ Urls routes creadas:
 > Nota: no se crea un "home" o "landing" por lo tanto visitar `http://127.0.0.1/`
 > devuelve error `404` como respuesta.
 
+Añadir modelos al panel de administración:
+
+- [../apiBike/.py](./chr_website/apiBike/admin.py)
+- ../servEvalAmbient/urls.py
+
+![](./imgs/django_admin-apiBike.png)
+
+Mas imagenes del administrador en [imgs/](./imgs)
