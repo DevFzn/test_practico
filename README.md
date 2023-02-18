@@ -91,7 +91,7 @@ Creación de las vistas:
 
 Creación de urls para las vistas:
 
-- [../apiBike/urls.py](./chr_website/apiBike/urls.py.py)
+- [../apiBike/urls.py](./chr_website/apiBike/urls.py)
 - [../servEvalAmbient/urls.py](./chr_website/servEvalAmbient/urls.py)
 
 Agregar Urls al proyecto en [./chr_website/chr_test/urls.py](./chr_website/chr_test/urls.py)
