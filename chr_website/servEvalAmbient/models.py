@@ -1,7 +1,6 @@
 from django.db import models
 
 # Nota: Los valores máximos admitidos deben ser optimizados.
-# inversion(MMU$) - fecha dd/mm/aaaa
 
 class Empresa(models.Model):
     numero = models.IntegerField()
@@ -10,7 +9,7 @@ class Empresa(models.Model):
     region = models.CharField(max_length=255)
     tipologia = models.CharField(max_length=255)
     titular = models.CharField(max_length=255)
-    inversion = models.IntegerField()
+    inversion = models.FloatField()
     fecha = models.DateField()
     estado = models.CharField(max_length=255)
     mapa = models.CharField(max_length=255)

@@ -110,8 +110,11 @@ Urls routes creadas:
 Añadir modelos al panel de administración:
 
 - [../apiBike/admin.py](./chr_website/apiBike/admin.py)
-- ../servEvalAmbient/admin.py
 
 ![](./imgs/django_admin-apiBike.png)
+
+- [../servEvalAmbient/admin.py](./chr_website/servEvalAmbient/admin.py)
+
+![](./imgs/django_admin-servEvalAmbient.png)
 
 Mas imagenes del administrador en [imgs/](./imgs)
