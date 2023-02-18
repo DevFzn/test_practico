@@ -89,19 +89,16 @@ Creación de las vistas:
 - [../apiBike/views.py](./chr_website/apiBike/views.py)
 - [../servEvalAmbient/views.py](./chr_website/servEvalAmbient/views.py)
 
-Crear urls para las vistas:
+Creación de urls para las vistas:
 
 - [../apiBike/urls.py](./chr_website/apiBike/urls.py.py)
 - [../servEvalAmbient/urls.py](./chr_website/servEvalAmbient/urls.py)
 
-Agregar vistas al proyecto en [./chr_website/chr_test/urls.py](./chr_website/chr_test/urls.py)
-
-En este punto (`commit 25283b0`) las vistas generadas son solo de prueba. Los
-modelos están vacios y no existen templates.
+Agregar Urls al proyecto en [./chr_website/chr_test/urls.py](./chr_website/chr_test/urls.py)
 
 Correr el proyecto `python manage.py runserver`
 
-Urls creadas:
+Urls routes creadas:
 
 - `http://127.0.0.1:8000/apiBike/`
 - `http://127.0.0.1:8000/servAmbiente/`
