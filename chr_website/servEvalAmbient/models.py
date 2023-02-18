@@ -1,3 +1,20 @@
 from django.db import models
 
-# Create your models here.
+# Nota: Los valores máximos admitidos deben ser optimizados.
+# inversion(MMU$) - fecha dd/mm/aaaa
+
+class Empresa(models.Model):
+    numero = models.IntegerField()
+    nombre = models.CharField(max_length=255)
+    tipo = models.CharField(max_length=255)
+    region = models.CharField(max_length=255)
+    tipologia = models.CharField(max_length=255)
+    titular = models.CharField(max_length=255)
+    inversion = models.IntegerField()
+    fecha = models.DateField()
+    estado = models.CharField(max_length=255)
+    mapa = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.nombre
+
