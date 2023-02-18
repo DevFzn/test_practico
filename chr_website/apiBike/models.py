@@ -9,6 +9,9 @@ class Network(models.Model):
     gbfs_href = models.CharField(max_length=255)
     href = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Location(models.Model):
     city = models.CharField(max_length=255)
@@ -17,6 +20,8 @@ class Location(models.Model):
     longitude = models.DecimalField(max_digits=22, decimal_places=16)
     network = models.ForeignKey(Network, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.city
 
 class Station(models.Model):
     id_station = models.CharField(max_length=255)
@@ -28,6 +33,8 @@ class Station(models.Model):
     timestamp = models.DateTimeField()
     network = models.ForeignKey(Network, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
 
 class Extra(models.Model):
     address = models.CharField(max_length=255)
@@ -45,3 +52,5 @@ class Extra(models.Model):
     uid = models.CharField(max_length=255)
     station = models.ForeignKey(Station, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.address
