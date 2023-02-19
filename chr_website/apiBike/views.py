@@ -8,7 +8,7 @@ API_URL= "http://api.citybik.es/v2/networks/bikesantiago"
 def api_bike(request):
     api_data = get_api_data()
     if not api_data:
-        return render (request, "apiBike/apibike_error.html")
+        return render(request, "apiBike/apibike_error.html")
     data = api_data['network'] 
     
     network = Network()
@@ -61,7 +61,7 @@ def api_bike(request):
         new_extra.station = new_station
         new_extra.save()
     
-    return render (request, "apiBike/apibike.html")
+    return render(request, "apiBike/apibike.html")
 
 
 def get_api_data():

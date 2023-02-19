@@ -118,3 +118,51 @@ Añadir modelos al panel de administración:
 ![](./imgs/django_admin-servEvalAmbient.png)
 
 Mas imagenes del administrador en [imgs/](./imgs)
+
+### Admin urls
+
+- http://127.0.0.1:8000/admin/servEvalAmbient/empresa/
+- http://127.0.0.1:8000/admin/apiBike/
+
+----
+
+## Puntos clave del desarrollo
+
+### Tarea 1
+
+
+Función clave que permite trabajar con el objeto `api_data`, que es la repuesta
+del método **get()** del módulo **requests**, con la URL del la API pasada como
+argumento. Con este objeto es posible realizar pruebas de impresion, entre otras,
+para comprender la estructura del **json**. Estructura que luego es implementada
+en el [modelo](./chr_website/apiBike/models.py) de la aplicación.
+
+[views.py](./chr_website/apiBike/views.py)
+
+```py
+def get_api_data():
+    try:
+        resp = requests.get(API_URL)
+        if resp.status_code == 200:
+            api_data = resp.json()
+        else:
+            raise requests.exceptions.HTTPError
+    except requests.RequestException as err:
+        # Mejorable, se debe capturar el error especifico
+        # y logging de error. mientras, error en consola.
+        print("Excepción API Request: \n", err)
+        api_data = {}
+    finally:
+        return api_data
+```
+
+Visitar `127.0.0.1:8000/apiBike/` llama a la vista, donde esta inicia el proceso
+de poblar la base de datos, llamando a la función `api_bike`, y es esta quien
+llama la función detallada mas arriba. La función `api_bike`, descompone los datos
+de `api_data` y los pasa donde corresponda, según el objeto del modelo instanciado.
+
+
+### Tarea 2
+
+- Python [script](./chr_website/servEvalAmbient/webscrap/get_sea_data.py)
+- Analisis [README](./chr_website/servEvalAmbient/webscrap/scraping_sea.md)
