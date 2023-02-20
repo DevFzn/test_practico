@@ -164,5 +164,6 @@ de `api_data` y los pasa donde corresponda, según el objeto del modelo instanci
 
 ### Tarea 2
 
-- Python [script](./chr_website/servEvalAmbient/webscrap/get_sea_data.py)
 - Analisis [README](./chr_website/servEvalAmbient/webscrap/scraping_sea.md)
+- Python [script](./chr_website/servEvalAmbient/webscrap/get_sea_data.py)
+- [SEA json](./chr_website/servEvalAmbient/webscrap/datos_sea.json)
