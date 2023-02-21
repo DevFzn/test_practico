@@ -71,6 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chr_test.wsgi.application'
 
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

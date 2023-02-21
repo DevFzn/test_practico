@@ -164,6 +164,11 @@ de `api_data` y los pasa donde corresponda, según el objeto del modelo instanci
 
 ### Tarea 2
 
-- Analisis [README](./chr_website/servEvalAmbient/webscrap/scraping_sea.md)
-- Python [script](./chr_website/servEvalAmbient/webscrap/get_sea_data.py)
-- [SEA json](./chr_website/servEvalAmbient/webscrap/datos_sea.json)
+- Analisis de datos a extraer [README](./chr_website/servEvalAmbient/webscrap/scraping_sea.md).
+- Python [script](./chr_website/servEvalAmbient/webscrap/get_sea_data.py) para web scraping.
+- Archivo [SEA json](./chr_website/servEvalAmbient/webscrap/datos_sea.json) con los datos extraidos.
+- Carga en base de datos desde [views.py](./chr_website/servEvalAmbient/views.py).
+
+Administrador de Django
+![](./imgs/django_admin-servEvalAmbient_Empresas.png)
+

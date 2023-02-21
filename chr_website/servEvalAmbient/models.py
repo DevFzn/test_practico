@@ -4,7 +4,7 @@ from django.db import models
 
 class Empresa(models.Model):
     numero = models.IntegerField()
-    nombre = models.CharField(max_length=500)
+    nombre = models.CharField(max_length=1000)
     tipo = models.CharField(max_length=255)
     region = models.CharField(max_length=255)
     tipologia = models.CharField(max_length=255)
