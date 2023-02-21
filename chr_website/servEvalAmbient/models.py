@@ -4,12 +4,12 @@ from django.db import models
 
 class Empresa(models.Model):
     numero = models.IntegerField()
-    nombre = models.CharField(max_length=255)
+    nombre = models.CharField(max_length=500)
     tipo = models.CharField(max_length=255)
     region = models.CharField(max_length=255)
     tipologia = models.CharField(max_length=255)
     titular = models.CharField(max_length=255)
-    inversion = models.FloatField()
+    inversion = models.CharField(max_length=255)
     fecha = models.DateField()
     estado = models.CharField(max_length=255)
     mapa = models.CharField(max_length=255)
