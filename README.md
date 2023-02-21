@@ -111,17 +111,17 @@ Añadir modelos al panel de administración:
 
 - [../apiBike/admin.py](./chr_website/apiBike/admin.py)
 
-![](./imgs/django_admin-apiBike.png)
+  ![](./imgs/django_admin-apiBike.png)
 
 - [../servEvalAmbient/admin.py](./chr_website/servEvalAmbient/admin.py)
 
-![](./imgs/django_admin-servEvalAmbient.png)
+  ![](./imgs/django_admin-servEvalAmbient.png)
 
 Mas imagenes del administrador en [imgs/](./imgs)
 
 ### Admin urls
 
-- http://127.0.0.1:8000/admin/servEvalAmbient/empresa/
+- http://127.0.0.1:8000/admin/servEvalAmbient/
 - http://127.0.0.1:8000/admin/apiBike/
 
 ----
@@ -166,9 +166,37 @@ de `api_data` y los pasa donde corresponda, según el objeto del modelo instanci
 
 - Analisis de datos a extraer [README](./chr_website/servEvalAmbient/webscrap/scraping_sea.md).
 - Python [script](./chr_website/servEvalAmbient/webscrap/get_sea_data.py) para web scraping.
+
+  ```py
+  ...
+  for pagina in range(cantidad_paginas):
+     ...
+      for tabla in table_data.findAll('tr'):
+          ...
+          new_data = {....}
+          with open(jsonfile, mode="r+") as file:
+              file.seek(0,2)
+              pos = file.tell() -1
+              file.seek(pos)
+              file.write( "{},]".format(json.dumps(new_data, ensure_ascii=False)))
+
+  with open(jsonfile, 'r+') as file:
+      file.seek(0,2)
+      pos = file.tell() -2
+      file.seek(pos)
+      file.write('] ')
+  ```
+
+  Al iterar la cantidad de páginas correspondientes, se itera sobre los datos extraidos para agregarlos
+  al diccionario `new_data`, se abre el JSON creado posteriormente, y para evitar cargar nuevamente todos
+  los datos de este en el archivo, se ubica el cursor en la última posición de este, luego retrocede un 
+  byte y escribe el diccionario seguido de `,]`. Luego al finalizar la iteración, se abre nuevamente el
+  archivo `jsonfile` y se reemplazan los últimos 2 bytes de este con `] `, para obtener un JSON válido.
+
 - Archivo [SEA json](./chr_website/servEvalAmbient/webscrap/datos_sea.json) con los datos extraidos.
 - Carga en base de datos desde [views.py](./chr_website/servEvalAmbient/views.py).
 
-Administrador de Django
-![](./imgs/django_admin-servEvalAmbient_Empresas.png)
+  Administrador de Django
+  
+  ![](./imgs/django_admin-servEvalAmbient_Empresas.png)
 
